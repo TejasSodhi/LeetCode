@@ -1,0 +1,19 @@
+
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int l1 = s.length();
+        if(l1 == 0) {
+            return true;
+        }
+        int l2 = t.length();
+        if(l1 > l2) {
+            return false;
+        }
+        if(s.charAt(0) == t.charAt(0)) {
+            return isSubsequence(s.substring(1, l1), t.substring(1, l2));
+        } else {            
+            return isSubsequence(s, t.substring(1, l2));
+        }
+    }
+}
+
